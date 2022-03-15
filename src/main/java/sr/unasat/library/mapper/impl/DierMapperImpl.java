@@ -1,10 +1,7 @@
 package sr.unasat.library.mapper.impl;
 
 import sr.unasat.library.dto.DierDto;
-import sr.unasat.library.dto.LidMaatschapDto;
 import sr.unasat.library.entity.Dier;
-import sr.unasat.library.entity.Dier;
-import sr.unasat.library.entity.Lidmaatschap;
 import sr.unasat.library.mapper.DierMapper;
 
 import java.util.ArrayList;
@@ -22,7 +19,7 @@ public class DierMapperImpl implements DierMapper {
         dier.setCategorie(dto.getCategorie());
         dier.setGeboordeDatum(dto.getGeboordeDatum());
         dier.setLidmaatschap(dto.getLidmaatschap());
-        dier.setOverleden(dto.getOverleden());
+        dier.setOverleden(dto.isOverleden());
         dier.setSoort(dto.getSoort());
 
         return dier;
@@ -37,7 +34,7 @@ public class DierMapperImpl implements DierMapper {
         dierDto.setCategorie(dier.getCategorie());
         dierDto.setGeboordeDatum(dier.getGeboordeDatum());
         dierDto.setLidmaatschap(dier.getLidmaatschap());
-        dierDto.setOverleden(dier.getOverleden());
+        dierDto.setOverleden(dier.isOverleden());
         dierDto.setSoort(dier.getSoort());
 
         return dierDto;

@@ -24,7 +24,6 @@ public class Lidmaatschap {
     private Long lidmaatschapNummer;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gebruiker_id")
     private Gebruiker gebruiker;
 
     @OneToMany(
@@ -35,7 +34,7 @@ public class Lidmaatschap {
     private List<Dier> dieren = new ArrayList<>();
 
     @OneToMany(
-            mappedBy = "lidmaatschap_id",
+            mappedBy = "lidmaatschap",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )

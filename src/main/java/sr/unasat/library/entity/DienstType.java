@@ -16,45 +16,12 @@ public class DienstType {
 
     private String omschrijving;
 
-    private String actief;
+    @OneToOne(mappedBy = "dienstType", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Dienst dienst;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(nullable = false, columnDefinition = "BIT default 0")
+    private boolean actief;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getOmschrijving() {
-        return omschrijving;
-    }
-
-    public void setOmschrijving(String omschrijving) {
-        this.omschrijving = omschrijving;
-    }
-
-    public String getActief() {
-        return actief;
-    }
-
-    public void setActief(String actief) {
-        this.actief = actief;
-    }
 }

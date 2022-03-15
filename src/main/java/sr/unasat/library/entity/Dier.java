@@ -24,7 +24,8 @@ public class Dier {
 
     private String soort;
 
-    private Boolean overleden;
+    @Column(nullable = false, columnDefinition = "BIT default 0")
+    private boolean overleden;
 
     public Long getId() {
         return id;
@@ -82,11 +83,11 @@ public class Dier {
         this.soort = soort;
     }
 
-    public Boolean getOverleden() {
+    public boolean isOverleden() {
         return overleden;
     }
 
-    public void setOverleden(Boolean overleden) {
+    public void setOverleden(boolean overleden) {
         this.overleden = overleden;
     }
 }

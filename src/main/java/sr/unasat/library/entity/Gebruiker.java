@@ -24,6 +24,14 @@ public class Gebruiker {
             fetch = FetchType.LAZY, optional = false)
     private Lidmaatschap lidmaatschap;
 
+    @OneToOne(mappedBy = "aangemaaktDoor", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Dienst dienstA;
+
+    @OneToOne(mappedBy = "afgehandeldDoor", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Dienst dienstB;
+
     @Column(nullable = false, columnDefinition = "BIT default 0")
     private boolean actief;
 
@@ -57,6 +65,18 @@ public class Gebruiker {
 
     public LocalDate getGeboorteDatum() {
         return geboorteDatum;
+    }
+
+    public Lidmaatschap getLidmaatschap() {
+        return lidmaatschap;
+    }
+
+    public Dienst getDienstA() {
+        return dienstA;
+    }
+
+    public Dienst getDienstB() {
+        return dienstB;
     }
 
     public boolean isActief() {
@@ -95,7 +115,7 @@ public class Gebruiker {
             return this;
         }
 
-        public GebruikerBuilder geboorteDatum(LocalDate geboorteDatum) {
+        public GebruikerBuilder geboorteDatum(LocalDate geboorteDatum){
             this.geboorteDatum = geboorteDatum;
             return this;
         }

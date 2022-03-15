@@ -13,7 +13,7 @@ public class DierDto {
     private Double gewicht;
     private String categorie;
     private String soort;
-    private Boolean overleden;
+    private boolean overleden;
 
     public Long getId() {
         return id;
@@ -71,11 +71,11 @@ public class DierDto {
         this.soort = soort;
     }
 
-    public Boolean getOverleden() {
+    public boolean isOverleden() {
         return overleden;
     }
 
-    public void setOverleden(Boolean overleden) {
+    public void setOverleden(boolean overleden) {
         this.overleden = overleden;
     }
 }
