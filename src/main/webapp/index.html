@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>startpage</title>
+</head>
+
+<body>
+
+<div class="w3-container w3-half w3-margin-top">
+
+        <p>
+            <input id="bookId" class="w3-input" type="hidden" style="width:90%">
+        </p>
+
+        <p>
+            <input id="name" class="w3-input" type="text" style="width:90%" required>
+            <label>Title</label></p>
+        <p>
+            <input id="author" class="w3-input" type="text" style="width:90%" required>
+            <label>Author</label></p>
+        <p>
+            <input id="isbn" class="w3-input" type="text" style="width:90%" required>
+            <label>ISBN</label></p>
+        <p>
+            <button id="btnSaveBook" onclick="saveBook()" class="w3-button w3-section w3-teal w3-ripple"> Add Book </button></p>
+
+</div>
+
+<div id="bookData" class="w3-container">
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
