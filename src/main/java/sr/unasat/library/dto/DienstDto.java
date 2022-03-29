@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
 public class DienstDto {
 
     private Long id;
-    private DienstType dienstTypeId;
+    private DienstType dienstType;
     private LocalDateTime datum;
     private Gebruiker aangemaaktDoor;
     private Gebruiker afgehanldDoor;
-    private Lidmaatschap lidId;
+    private Lidmaatschap lidmaatschap;
     private String opmerking;
     private boolean actief;
 
@@ -24,12 +24,12 @@ public class DienstDto {
         this.id = id;
     }
 
-    public DienstType getDienstTypeId() {
-        return dienstTypeId;
+    public DienstType getDienstType() {
+        return dienstType;
     }
 
-    public void setDienstTypeId(DienstType dienstTypeId) {
-        this.dienstTypeId = dienstTypeId;
+    public void setDienstType(DienstType dienstType) {
+        this.dienstType = dienstType;
     }
 
     public LocalDateTime getDatum() {
@@ -56,12 +56,12 @@ public class DienstDto {
         this.afgehanldDoor = afgehanldDoor;
     }
 
-    public Lidmaatschap getLidId() {
-        return lidId;
+    public Lidmaatschap getLidmaatschap() {
+        return lidmaatschap;
     }
 
-    public void setLidId(Lidmaatschap lidId) {
-        this.lidId = lidId;
+    public void setLidmaatschap(Lidmaatschap lidmaatschap) {
+        this.lidmaatschap = lidmaatschap;
     }
 
     public String getOpmerking() {

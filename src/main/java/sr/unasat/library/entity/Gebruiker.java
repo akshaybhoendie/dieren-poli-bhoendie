@@ -1,5 +1,8 @@
 package sr.unasat.library.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -20,16 +23,16 @@ public class Gebruiker {
 
     private LocalDate geboorteDatum;
 
-    @OneToOne(mappedBy = "gebruiker", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(mappedBy = "gebruiker")
+    @JsonIgnore
     private Lidmaatschap lidmaatschap;
 
-    @OneToOne(mappedBy = "aangemaaktDoor", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(mappedBy = "aangemaaktDoor")
+    @JsonIgnore
     private Dienst dienstA;
 
-    @OneToOne(mappedBy = "afgehandeldDoor", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(mappedBy = "afgehandeldDoor")
+    @JsonIgnore
     private Dienst dienstB;
 
     @Column(nullable = false, columnDefinition = "BIT default 0")

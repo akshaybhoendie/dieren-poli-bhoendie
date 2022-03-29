@@ -2,8 +2,6 @@ package sr.unasat.library.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Dienst {
@@ -13,23 +11,24 @@ public class Dienst {
     @Column
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dienstType_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dienstType_id", referencedColumnName = "id")
     private DienstType dienstType;
 
     private LocalDateTime datum;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "aangemaaktDoor")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "aangemaaktDoor", referencedColumnName = "id")
     private Gebruiker aangemaaktDoor;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "afgehandeldDoor")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "afgehandeldDoor", referencedColumnName = "id")
     private Gebruiker afgehandeldDoor;
 
     private String opmerking;
 
     @ManyToOne
+    @JoinColumn(name = "lidmaatschapId", nullable = false, referencedColumnName = "id")
     private Lidmaatschap lidmaatschap;
 
     @Column(nullable = false, columnDefinition = "BIT default 0")

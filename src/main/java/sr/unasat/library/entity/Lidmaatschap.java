@@ -1,5 +1,8 @@
 package sr.unasat.library.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,21 +26,16 @@ public class Lidmaatschap {
 
     private Long lidmaatschapNummer;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "creator_id", referencedColumnName = "id")
     private Gebruiker gebruiker;
 
-    @OneToMany(
-            mappedBy = "lidmaatschap",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "lidmaatschap")
+    @JsonIgnore
     private List<Dier> dieren = new ArrayList<>();
 
-    @OneToMany(
-            mappedBy = "lidmaatschap",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "lidmaatschap")
+    @JsonIgnore
     private List<Dienst> diensten = new ArrayList<>();
 
     @Column(nullable = false, columnDefinition = "BIT default 0")

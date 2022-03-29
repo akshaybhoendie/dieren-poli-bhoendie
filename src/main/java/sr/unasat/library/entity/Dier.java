@@ -13,7 +13,8 @@ public class Dier {
 
     private String naam;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "lidmaatschapId", nullable = false, referencedColumnName = "id")
     private Lidmaatschap lidmaatschap;
 
     private LocalDate geboordeDatum;
